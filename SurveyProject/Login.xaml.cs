@@ -124,7 +124,7 @@ namespace SurveyProject
       //      Application.Current.Shutdown();
       //  }
 
-        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Login_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);
         }

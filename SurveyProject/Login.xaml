@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="로그인" Height="262" Width="250" GlowBrush="{DynamicResource AccentColorBrush}"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Closing="MetroWindow_Closing">
+        Closing="Login_Closing">
 
     <Controls:MetroWindow.IconTemplate>
         <DataTemplate>
