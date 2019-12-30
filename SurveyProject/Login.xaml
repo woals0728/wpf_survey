@@ -1,0 +1,40 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SurveyProject"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="SurveyProject.Login"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="로그인" Height="262" Width="250" GlowBrush="{DynamicResource AccentColorBrush}"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Closing="MetroWindow_Closing">
+
+    <Controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconSimpleIcons Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                Margin="4" Foreground="{DynamicResource IdealForegroundColorBrush}" Kind="ApacheAirflow" />
+        </DataTemplate>
+    </Controls:MetroWindow.IconTemplate>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Menu Background="{x:Null}">
+                <MenuItem x:Name="menuHeader" Header="색상" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <MenuItem x:Name="menu1" Header="다크모드" Click="DarkMode" Foreground="Black"/>
+                    <MenuItem x:Name="menu2" Header="일반" Click="LightMode" Foreground="Black"/>
+                </MenuItem>
+            </Menu>
+            
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <TextBox x:Name="idBox" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="35" Margin="25,32,0,0" VerticalAlignment="Top" Width="200" mah:TextBoxHelper.UseFloatingWatermark="True" mah:TextBoxHelper.Watermark="ID"/>
+        <PasswordBox x:Name="passBox" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="35" Margin="25,84,0,0"  VerticalAlignment="Top" Width="200" mah:TextBoxHelper.UseFloatingWatermark="True" mah:TextBoxHelper.Watermark="PASSWORD"/>
+        <Button Content ="LOGIN" HorizontalAlignment="Center" Margin="76,141,72,0" VerticalAlignment="Top" Width="96" Height="78" Click="Button_Click" RenderTransformOrigin="0.649,0.506" Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}" BorderBrush="Gray" Foreground="Gray"/>
+
+    </Grid>
+</Controls:MetroWindow>
