@@ -1,0 +1,171 @@
+﻿<Page
+    x:Class="SurveyProject.Obj_list"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SurveyProject"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+        MinHeight="570" MinWidth="950"
+      d:DesignHeight="570" d:DesignWidth="950"
+      Title="설문목록 관리">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="147*"/>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="69*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="432*"/>
+            <ColumnDefinition Width="176*"/>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="234*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.ColumnSpan="5">
+            <Grid/>
+        </Border>
+        <Border Grid.Row="1" Grid.RowSpan="2">
+            <ListView x:Name="list2" HorizontalAlignment="Left" Height="320" Margin="10,-32,0,0" VerticalAlignment="Top" Width="420" PreviewMouseLeftButtonUp="list2_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontFamily="Malgun Gothic" Grid.Row="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="설문 번호" Width="60" DisplayMemberBinding="{Binding NUM}"/>
+                        <GridViewColumn Header="설문 주제" Width="160" DisplayMemberBinding="{Binding TOPSUBJECT}"/>
+                        <GridViewColumn Header="시작일" Width="100" DisplayMemberBinding="{Binding START}"/>
+                        <GridViewColumn Header="종료일" Width="100" DisplayMemberBinding="{Binding END}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="4">
+            <Grid>
+                <ListView x:Name="list1" HorizontalAlignment="Left" Height="159" Margin="3,-32,0,0" VerticalAlignment="Top" Width="505" ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseLeftButtonUp="list1_MouseDoubleClick" FontFamily="Malgun Gothic">
+                    <ListView.View>
+                        <GridView x:Name="gridview">
+                            <GridViewColumn Header="항목 번호" Width="60" DisplayMemberBinding="{Binding IDX}"/>
+                            <GridViewColumn Header="객관식 항목" Width="225" DisplayMemberBinding="{Binding SUBJECT}"/>
+                            <GridViewColumn Header="종류" Width="100" DisplayMemberBinding="{Binding KIND}"/>
+                            <GridViewColumn Header="항목 개수" Width="60" DisplayMemberBinding="{Binding NUM}"/>
+                            <GridViewColumn Header="공개여부" Width="60" DisplayMemberBinding="{Binding VIEW}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView x:Name="list3" HorizontalAlignment="Left" Height="159" Margin="3,129,0,0" VerticalAlignment="Top" Width="505"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" PreviewMouseLeftButtonUp="list3_MouseDoubleClick" FontFamily="Malgun Gothic">
+                    <ListView.View>
+                        <GridView x:Name="gridview1">
+                            <GridViewColumn Header="항목 번호" Width="60" DisplayMemberBinding="{Binding IDX}"/>
+                            <GridViewColumn Header="주관식 항목" Width="225" DisplayMemberBinding="{Binding SUBJECT}"/>
+                            <GridViewColumn Header="종류" Width="100" DisplayMemberBinding="{Binding KIND}"/>
+                            <GridViewColumn Header="항목 넓이" Width="60" DisplayMemberBinding="{Binding AREA}"/>
+                            <GridViewColumn Header="공개여부" Width="60" DisplayMemberBinding="{Binding VIEW}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.ColumnSpan="5" Grid.RowSpan="3">
+            <Grid>
+                <GroupBox Header="   설문 주제" HorizontalAlignment="Left" Height="62" Margin="10,3,0,0" VerticalAlignment="Top" Width="930" FontFamily="Malgun Gothic">
+                    <Grid>
+                        <DatePicker x:Name="date1" HorizontalAlignment="Left" Margin="413,-30,0,0" VerticalAlignment="Top" Width="95" SelectedDateChanged="DatePicker_SelectedDateChanged" IsEnabled="False">
+                            <DatePicker.Resources>
+                                <Style TargetType="{x:Type DatePickerTextBox}">
+                                    <Setter Property="IsReadOnly" Value="True"/>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                        <DatePicker x:Name="date2" HorizontalAlignment="Left" Margin="536,-30,0,0" VerticalAlignment="Top" Width="96" SelectedDateChanged="DatePicker_SelectedDateChanged" IsEnabled="False">
+                            <DatePicker.Resources>
+                                <Style TargetType="{x:Type DatePickerTextBox}">
+                                    <Setter Property="IsReadOnly" Value="True"/>
+                                </Style>
+                            </DatePicker.Resources>
+                        </DatePicker>
+                        <Label Content="~" HorizontalAlignment="Left" Margin="513,-30,0,0" VerticalAlignment="Top" Width="18" Height="26" Foreground="White"/>
+                        <Label Content="기 간" HorizontalAlignment="Left" Margin="370,-30,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <TextBox x:Name="subject" HorizontalAlignment="Left" Height="26" Margin="85,-30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280" IsEnabled="False" MaxLength="50"/>
+                        <TextBox MaxLength="255" x:Name="info"  HorizontalAlignment="Left" Height="23" Margin="1,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="919" mah:TextBoxHelper.Watermark="도움말" IsEnabled="False"/>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="  객관식 항목" HorizontalAlignment="Left" Height="62" Margin="10,70,0,0" VerticalAlignment="Top" Width="930" FontFamily="Malgun Gothic" Grid.ColumnSpan="2" Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="369*"/>
+                            <ColumnDefinition Width="91*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox MaxLength="20" x:Name="obj_subject" HorizontalAlignment="Left" Height="24" Margin="85,-30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="280" TabIndex="1"/>
+                        <ComboBox x:Name="obj_kind" HorizontalAlignment="Left" Margin="412,-30,0,0" VerticalAlignment="Top" Width="96" TabIndex="2">
+                            <ComboBoxItem Content="radio"/>
+                            <ComboBoxItem Content="checkbox"/>
+                        </ComboBox>
+                        <Label Content="종 류" HorizontalAlignment="Left" Margin="370,-30,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="항목 개수" HorizontalAlignment="Left" Margin="512,-30,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <ComboBox x:Name="obj_num" HorizontalAlignment="Left" Margin="580,-30,0,0" VerticalAlignment="Top" Width="54" SelectionChanged="obj_num_SelectionChanged" DropDownClosed="obj_num_DropDownClosed" TabIndex="3">
+                            <ComboBoxItem Content="3"/>
+                            <ComboBoxItem Content="4"/>
+                            <ComboBoxItem Content="5"/>
+                        </ComboBox>
+                        <Label Content="공개 여부" HorizontalAlignment="Left" Margin="638,-30,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <ComboBox x:Name="obj_view" HorizontalAlignment="Left" Margin="706,-30,0,0" VerticalAlignment="Top" Width="64" Grid.ColumnSpan="2" TabIndex="4">
+                            <ComboBoxItem Content="on"/>
+                            <ComboBoxItem Content="off"/>
+                        </ComboBox>
+                        <TextBox MaxLength="50" x:Name="item1" HorizontalAlignment="Left" Height="23" Margin="14,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" mah:TextBoxHelper.Watermark="항목 1" TabIndex="5"/>
+                        <TextBox MaxLength="50" x:Name="item3" HorizontalAlignment="Left" Height="23" Margin="374,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" mah:TextBoxHelper.Watermark="항목 3" TabIndex="7"/>
+                        <TextBox MaxLength="50" x:Name="item4" HorizontalAlignment="Left" Height="23" Margin="554,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" mah:TextBoxHelper.Watermark="항목 4" TabIndex="8"/>
+                        <TextBox MaxLength="50" x:Name="item5" HorizontalAlignment="Left" Height="23" Margin="734,1,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" mah:TextBoxHelper.Watermark="항목 5" Grid.ColumnSpan="2" TabIndex="8"/>
+                        <TextBox MaxLength="50" x:Name="item2" HorizontalAlignment="Left" Height="23" Margin="194,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" mah:TextBoxHelper.Watermark="항목 2" TabIndex="6"/>
+                        <Label x:Name="obj_plus" Content="추가" HorizontalAlignment="Left" Margin="152,-30,-4,0" VerticalAlignment="Top" Foreground="White" Width="34" MouseLeftButtonUp="obj_plus_MouseLeftButtonUp" Grid.Column="1"/>
+                        <Label x:Name="obj_plus_icon" Content="+" HorizontalAlignment="Left" Margin="133,-39,0,0" VerticalAlignment="Top" Foreground="White" Width="26" FontSize="22" Height="35" MouseLeftButtonUp="obj_plus_MouseLeftButtonUp" Grid.Column="1"/>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="  주관식 항목" HorizontalAlignment="Left" Height="62" Margin="10,137,0,0" VerticalAlignment="Top" Width="930" FontFamily="Malgun Gothic" Grid.ColumnSpan="2" Grid.Row="2">
+                    <Grid>
+                        <ComboBox x:Name="subj_kind" HorizontalAlignment="Left" Margin="355,-30,0,0" VerticalAlignment="Top" Width="94" StaysOpenOnEdit="True" TabIndex="10">
+                            <ComboBoxItem Content="text"/>
+                            <ComboBoxItem Content="textarea"/>
+                        </ComboBox>
+                        <Label Content="종 류" HorizontalAlignment="Left" Margin="312,-30,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="항목 넓이" HorizontalAlignment="Left" Margin="454,-31,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="공개 여부" HorizontalAlignment="Left" Margin="639,-30,0,0" VerticalAlignment="Top" Foreground="White"/>
+                        <ComboBox x:Name="subj_view" HorizontalAlignment="Left" Margin="706,-30,0,0" VerticalAlignment="Top" Width="65" TabIndex="13">
+                            <ComboBoxItem Content="on"/>
+                            <ComboBoxItem Content="off"/>
+                        </ComboBox>
+                        <TextBox MaxLength="255" x:Name="subj_item"  HorizontalAlignment="Left" Height="23" Margin="1,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="919" mah:TextBoxHelper.Watermark="주관식 항목" TabIndex="14"/>
+                        <TextBox MaxLength="3" x:Name="subj_row" HorizontalAlignment="Left" Height="24" Margin="521,-30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="54" mah:TextBoxHelper.Watermark="행" HorizontalContentAlignment="Center" TabIndex="11"/>
+                        <TextBox MaxLength="3" x:Name="subj_column" HorizontalAlignment="Left" Height="24" Margin="580,-30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="54" mah:TextBoxHelper.Watermark="열" HorizontalContentAlignment="Center" TabIndex="12"/>
+                        <Label x:Name="subj_plus" Content="추가" HorizontalAlignment="Left" Margin="890,-30,-4,0" VerticalAlignment="Top" Foreground="White" Width="34" MouseLeftButtonUp="subj_plus_MouseLeftButtonUp"/>
+                        <Label x:Name="subj_plus_icon" Content="+" HorizontalAlignment="Left" Margin="871,-39,0,0" VerticalAlignment="Top" Foreground="White" Width="26" FontSize="22" Height="35" MouseLeftButtonUp="subj_plus_MouseLeftButtonUp"/>
+
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Grid.ColumnSpan="5">
+            <Grid>
+                <Button Content="삭제" x:Name="delete"  Margin="783,3,91,5"  Width="76" Click="delete_Click" FontFamily="Malgun Gothic"/>
+                <Button Content="취소" x:Name="cancel"  Margin="864,3,10,5"  Width="76" Click="cancel_Click" FontFamily="Malgun Gothic"/>
+                <Button Content="수정" x:Name="update"  Margin="702,3,172,5"  Width="76" Click="update_Click" FontFamily="Malgun Gothic"/>
+            </Grid>
+        </Border>
+
+
+
+
+
+        <TextBox x:Name="top_idx" HorizontalAlignment="Left" Height="23" Margin="115,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="31" IsEnabled="False" Visibility="Hidden" Grid.Row="3"/>
+        <TextBox x:Name="obj_idx" HorizontalAlignment="Left" Height="23" Margin="115,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="31" IsEnabled="False" Visibility="Hidden" Grid.Row="3"/>
+        <TextBox x:Name="subj_idx" HorizontalAlignment="Left" Height="23" Margin="115,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="31" IsEnabled="False" Visibility="Hidden" Grid.Row="3"/>
+    </Grid>
+</Page>

@@ -47,17 +47,19 @@ namespace SurveyProject
 
         private void DarkMode(object sender, RoutedEventArgs e)
         {
+            Properties.Settings.Default.colorId = "Mauve";
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
             ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent("Mauve"), ThemeManager.GetAppTheme("BaseDark"));
             menuHeader.Foreground = new SolidColorBrush(Colors.White);
             menu1.Foreground = new SolidColorBrush(Colors.White);
             menu2.Foreground = new SolidColorBrush(Colors.White);
-        }
+
+        }   
 
         private void LightMode(object sender, RoutedEventArgs e)
         {
             Tuple<AppTheme, Accent> appStyle = ThemeManager.DetectAppStyle(Application.Current);
-            ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent("Cobalt"), ThemeManager.GetAppTheme("BaseLight"));
+            ThemeManager.ChangeAppStyle(Application.Current, ThemeManager.GetAccent("Green"), ThemeManager.GetAppTheme("BaseLight"));
             menuHeader.Foreground = new SolidColorBrush(Colors.White);
             menu1.Foreground = new SolidColorBrush(Colors.Black);
             menu2.Foreground = new SolidColorBrush(Colors.Black);

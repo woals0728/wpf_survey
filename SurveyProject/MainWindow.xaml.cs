@@ -30,18 +30,6 @@ namespace SurveyProject
             InitializeComponent();
         }
 
-        private void stats_Click(object sender, RoutedEventArgs e)
-        {
-            Stats stat = new Stats();
-            this.Content = stat;
-        }
-
-        private void admin_Click(object sender, RoutedEventArgs e)
-        {
-            Admin admin = new Admin();
-            this.Content = admin;
-        }
-
         
         
 
@@ -64,5 +52,22 @@ namespace SurveyProject
             }
         }
 
+        private void obj_list_Click(object sender, RoutedEventArgs e)
+        {
+            Obj_list obj_list = new Obj_list();
+            this.Content = obj_list;
+        }
+
+        private void survey_manage_Click(object sender, RoutedEventArgs e)
+        {
+            Survey_manage survey_Manage = new Survey_manage();
+            this.Content = survey_Manage;
+        }
+
+        private void stats_Click(object sender, RoutedEventArgs e)
+        {
+            Stats stat = new Stats();
+            this.Content = stat;
+        }
     }
 }

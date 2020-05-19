@@ -9,8 +9,9 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
-        Title="만족도조사" Height="600" Width="950" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Closing="main_Closing">
+        Title="만족도조사" Height="600" Width="950" WindowStartupLocation="CenterScreen"
+        MinHeight="600" MinWidth="950"
+        Closing="main_Closing" ResizeMode="CanMinimize">
 
     <Controls:MetroWindow.IconTemplate>
         <DataTemplate>
@@ -23,23 +24,17 @@
         <Controls:WindowCommands>
             <Menu BorderThickness="0">
                 <MenuItem Header="설문조사 관리">
-                    <MenuItem Header="설문조사 목록">
-                        <MenuItem Header="주관식"/>
-                        <MenuItem Header="객관식"/>
-                    </MenuItem>
-                    <MenuItem Header="설문조사 답변 목록">
-                        <MenuItem Header="주관식"/>
-                        <MenuItem Header="객관식"/>
-                    </MenuItem>
-                    <MenuItem Header="three" />
+                    <MenuItem x:Name="survey_manage"  Header="설문주제 관리" Click="survey_manage_Click"/>
+                    <MenuItem x:Name="obj_list"  Header="설문항목 관리" Click="obj_list_Click"/>
                 </MenuItem>
             </Menu>
             <Button x:Name="statsButton" Content="통계" Click="stats_Click"/>
-            <Button x:Name="adminButton" Content="관리자" Click="admin_Click"/>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 
-    <Grid>
-        <Frame Source="/Main.xaml" NavigationUIVisibility="Hidden"/>
-    </Grid>
+    <DockPanel>
+        <Grid>
+            <Frame x:Name="frm" Source="/Stats.xaml" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </DockPanel>
 </Controls:MetroWindow>
